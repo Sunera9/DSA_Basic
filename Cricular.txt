@@ -1,0 +1,66 @@
+package QueueX;
+
+public class queuex {
+	
+	private int [] queuArray;
+	private int maxSize;
+	private int front ;
+	private int rear;
+	private int nitems;
+	
+	public queuex(int s) {
+		
+		maxSize = 10;
+		queuArray = new int [maxSize];
+		front = 0;
+		nitems =0;
+		rear = -1;
+		
+	}
+	
+	public void insert (int j) {
+		if (nitems == maxSize) {
+			System.out.println("Queue is full");
+		}
+		else {
+			if(rear == maxSize -1) {
+				rear =1;
+			}
+			else {
+				queuArray[++rear]=j;
+				nitems++;
+			}
+		}
+	}
+	
+	public int remove() {
+		if (nitems==0) {
+			System.out.println("Queue is empty");
+			return -99;
+		}
+			else {
+				nitems--;
+				int temp = queuArray[front++];
+				if(front == maxSize)
+					front =0;
+				return temp;
+				}
+			}
+	public int peekFront() {
+		if(nitems==0)
+		{
+			System.out.println("Queue is empty");
+			return -99;
+		}
+		else 
+		return queuArray[front];
+	}
+	public boolean isFull() {
+		return (nitems == maxSize);
+	}
+	public boolean isEmpty() {
+		return (nitems==0);
+	}
+		}
+	
+
